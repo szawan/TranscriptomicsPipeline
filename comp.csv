@@ -1,0 +1,8 @@
+Condition,Reference,Experiment
+Cuffdiff,CT,WD
+Cuffdiff,CT,HS
+Cuffdiff,CT,CO
+Cuffdiff,CT,WDHS
+Cuffdiff,CT,WDCO
+Cuffdiff,CT,HSCO
+Cuffdiff,CT,WDHSCO
