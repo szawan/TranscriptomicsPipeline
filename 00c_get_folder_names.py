@@ -2,7 +2,7 @@
 import os
 
 # SET PATHS
-input_directory = "../input/01.RawData/"
+input_directory = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/processed/"
 
 # Get all the folder names
 folder_names = []

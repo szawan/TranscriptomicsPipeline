@@ -2,10 +2,11 @@
 import os
 
 # SET PATHS
-input_directory = "../input/01.RawData/"
-required_extension = ".fq.gz"
-output_directory = "../output/2_trimmed_output/trimmed_files/"
-logs_directory = "../output/2_trimmed_output/trim_logs/"
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/"
+input_directory = context_path+"processed/"
+required_extension = ".fastq.gz"
+output_directory = context_path+"2_trimmed_output/trimmed_files/"
+logs_directory = context_path+"2_trimmed_output/trim_logs/"
 folder_names_file = "folder_names.txt"
 
 # create output and log directory if not present

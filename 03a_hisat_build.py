@@ -2,9 +2,10 @@
 import os
 
 # SET PATHS
-reference_fasta = "../ref_genome/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa"
-output_location = "../ref_genome/hisat2_index/"
-index_basename = "Arabidopsis_thaliana.TAIR10.dna.toplevel.fa"
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/"
+reference_fasta = "/scratch/sah2p/datasets/hg38/GRCh38_latest_genomic.fna"
+output_location = "/scratch/sah2p/datasets/hg38/hisat2_index/"
+index_basename = "GRCh38_latest_genomic.fna"
 
 # if output location does not exist, create it
 if not os.path.exists(output_location):

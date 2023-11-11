@@ -2,8 +2,10 @@
 import os
 
 # SET PATHS
-input_directory = "../input/01.RawData/"
-required_extension = ".fq.gz"
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/" 
+input_directory = context_path+"raw_data/"
+output_dir = context_path+"output/multiplex/"
+required_extension = ".fastq.gz"
 
 print("handling multiplexing...")
 # Function definitions

@@ -1,11 +1,12 @@
 import os
 
 # SET PATHS
-input_directory = "../output/4_sorted_bam/files" # without last slash
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/"
+input_directory = context_path+"4_sorted_bam/files" # without last slash
 required_extension = ".sam"
-output_directory = "../output/5_cufflinks_result/files/"
+output_directory = context_path+"5_cufflinks_result/files/"
 folder_names_file = "folder_names.txt"
-ref_annotation = "../annotation/Arabidopsis_thaliana.TAIR10.57.gff3"
+ref_annotation = "/scratch/sah2p/datasets/hg38/annotation/Homo_sapiens.GRCh38.110.gff3"
 
 
 # create output and log directory if not present
@@ -26,7 +27,7 @@ for folder_name in folders:
     output_file_name = output_directory + folder_name
 
     # create a command to run cufflinks
-    command = "cufflinks -p 4 -G " + ref_annotation + " " + input_file + " -o " + output_file_name
+    command = "cufflinks -p 4 -G " + ref_annotation + " " + input_file + " -o " + output_file_name + " &"
     # print the command to the screen
     print(command)
     # run the command

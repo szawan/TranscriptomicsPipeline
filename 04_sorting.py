@@ -1,10 +1,11 @@
 import os
 
 # SET PATHS
-input_directory = "../output/3_aligned_sequences/files" # without last slash
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/"
+input_directory = context_path+"3_aligned_sequences/files" # without last slash
 required_extension = ".sam"
-output_directory = "../output/4_sorted_bam/files/"
-logs_directory = "../output/4_sorted_bam/logs/"
+output_directory = context_path+"4_sorted_bam/files/"
+logs_directory = context_path+"4_sorted_bam/logs/"
 folder_names_file = "folder_names.txt"
 
 

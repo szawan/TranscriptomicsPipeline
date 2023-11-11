@@ -2,11 +2,12 @@
 import os
 
 # SET PATHS
-input_directory = "../output/2_trimmed_output/trimmed_files" # without last slash
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/"
+input_directory = context_path+"2_trimmed_output/trimmed_files" # without last slash
 required_extension = ".fq.gz"
-output_directory = "../output/3_aligned_sequences/files/"
-logs_directory = "../output/3_aligned_sequences/logs/"
-reference_genome = "../ref_genome/hisat2_index/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa"
+output_directory = context_path+"3_aligned_sequences/files/"
+logs_directory = context_path+"3_aligned_sequences/logs/"
+reference_genome = "/scratch/sah2p/datasets/hg38/hisat2_index/GRCh38_latest_genomic.fna"
 folder_names_file = "folder_names.txt"
 
 
