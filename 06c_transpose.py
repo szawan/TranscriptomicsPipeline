@@ -2,9 +2,10 @@ import csv
 import os
 
 # SET PATHS
-input_directory = "../output/6_fpkm_csv" # without last slash
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/"
+input_directory = context_path+"06_fpkm_csv" # without last slash
 required_extension = ".csv"
-output_directory = "../output/6_fpkm_csv"
+output_directory = input_directory
 
 # read csv file
 reader = csv.reader(open(input_directory + "/combined_data.csv", "r"), delimiter=",")

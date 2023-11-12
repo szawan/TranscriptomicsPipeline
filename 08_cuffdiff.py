@@ -4,12 +4,14 @@ import glob
 import pandas as pd
 
 # SET PATHS
-input_directory = "../output/4_sorted_bam/files" # without last slash
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/"
+input_directory = context_path+"4_sorted_bam/files" # without last slash
 required_extension = ".sam"
-output_directory = "../output/5_cufflinks_result/files/"
+output_directory = context_path+"8_cuffdiff_result/files/"
+logs_directory = "/8_cuffdiff_results/logs/"
 folder_names_file = "folder_names.txt"
 
-reference_file = "../annotation/Arabidopsis_thaliana.TAIR10.57.gff3"
+reference_file = "/scratch/sah2p/datasets/hg38/annotation/GRCh38_latest_genomic.gff"
 comp_file = "comp.csv"
 comp = pd.read_csv(comp_file)
 
@@ -45,26 +47,26 @@ for index,row in comp.iterrows():
 condition = comp['Condition'].unique()
 
 for index,row in comp.iterrows():
-    if not os.path.exists('../output/8_cuffdiff/'+comp.iloc[index].Condition+'/logs_cuffdiff/'):
-        os.makedirs('../output/8_cuffdiff/'+comp.iloc[index].Condition+'/logs_cuffdiff/')
+    if not os.path.exists(output_directory+comp.iloc[index].Condition+logs_directory):
+        os.makedirs(output_directory+comp.iloc[index].Condition+logs_directory)
 
 #    if not os.path.exists('./counts/count_logs/'):
 #        os.makedirs('./counts/count_logs/')
 
     #if comp.iloc[index].Condition != condition[0]:
     str1 = \
-        "(cuffdiff -p 8 -o ../output/8_cuffdiff/"+comp.iloc[index].Condition+"/"+comp.iloc[index].Experiment+"_vs_"+comp.iloc[index].Reference \
+        "(cuffdiff -p 8 -o" + output_directory +comp.iloc[index].Condition+"/"+comp.iloc[index].Experiment+"_vs_"+comp.iloc[index].Reference \
         +" "\
         \
         + reference_file+" "+comp.iloc[index].den+" "+comp.iloc[index].num \
         \
-        +input_directory+"/"+comp.iloc[index].Reference+"1_sorted.sam"+','+input_directory+"/"+comp.iloc[index].Reference+"2_sorted.sam"+','+input_directory+"/"+comp.iloc[index].Reference+"3_sorted.sam"\
+        +input_directory+"/"+comp.iloc[index].Reference+"_1_sorted.sam"+','+input_directory+"/"+comp.iloc[index].Reference+"_2_sorted.sam"+','+input_directory+"/"+comp.iloc[index].Reference+"_3_sorted.sam"\
         \
         +" "\
         \
-        +input_directory+"/"+comp.iloc[index].Experiment+"1_sorted.sam"+','+input_directory+"/"+comp.iloc[index].Experiment+"2_sorted.sam"+','+input_directory+"/"+comp.iloc[index].Experiment+"3_sorted.sam"\
+        +input_directory+"/"+comp.iloc[index].Experiment+"_1_sorted.sam"+','+input_directory+"/"+comp.iloc[index].Experiment+"_2_sorted.sam"+','+input_directory+"/"+comp.iloc[index].Experiment+"_3_sorted.sam"\
         \
-        +") >> ../output/8_cuffdiff/"+comp.iloc[index].Condition+"/logs_cuffdiff/log_"+comp.iloc[index].Experiment+"_vs_"+comp.iloc[index].Reference+".txt 2>&1 &"
+        +") >> "+output_directory+comp.iloc[index].Condition+logs_directory+"log_"+comp.iloc[index].Experiment+"_vs_"+comp.iloc[index].Reference+".txt 2>&1 &"
         
     print(str1+"\n")
     os.system(str1)

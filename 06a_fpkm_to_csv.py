@@ -2,10 +2,11 @@ import csv
 import os
 
 # SET PATHS
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/"
 folder_names_file = "folder_names.txt"
-input_directory = "../output/5_cufflinks_result/files" # without last slash
+input_directory = context_path+"5_cufflinks_result/files" # without last slash
 required_extension = ".fpkm_tracking"
-output_directory = "../output/6_fpkm_csv"
+output_directory = context_path+"/06_fpkm_csv"
 
 # create output and log directory if not present
 if not os.path.exists(output_directory):

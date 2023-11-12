@@ -1,8 +1,4 @@
 Condition,Reference,Experiment
-Cuffdiff,CT,WD
-Cuffdiff,CT,HS
-Cuffdiff,CT,CO
-Cuffdiff,CT,WDHS
-Cuffdiff,CT,WDCO
-Cuffdiff,CT,HSCO
-Cuffdiff,CT,WDHSCO
+Cuffdiff,A549_C36,A549_E07
+Cuffdiff,A549_C36,A549_Veh
+Cuffdiff,A549_E07,A549_Veh

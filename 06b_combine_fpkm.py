@@ -2,10 +2,11 @@ import csv
 import os
 
 # SET PATHS
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output"
 folder_names_file = "folder_names.txt"
-input_directory = "../output/6_fpkm_csv" # without last slash
+input_directory = context_path+"/06_fpkm_csv" # without last slash
 required_extension = ".csv"
-output_directory = "../output/6_fpkm_csv"
+output_directory = input_directory
 
 # open file with folder names
 folders = open(folder_names_file, "r")
