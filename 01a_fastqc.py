@@ -2,9 +2,10 @@
 import os
 
 # SET PATHS
-input_directory = "../input/01.Raw/"
-required_extension = ".fq.gz"
-result_directory = "../output/1_initial_qc/fastqc/"
+context_path = '/data/sah2p/datasets/2023_11_04_infostat_8005/AlzhiemerData-Bulk'
+input_directory = context_path+'/fastq/'
+required_extension = ".fastq"
+result_directory = context_path+"/output/1_initial_qc/fastqc/"
 folder_names_file = "folder_names.txt"
 
 # create result directory if not present
