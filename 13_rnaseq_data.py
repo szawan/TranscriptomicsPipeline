@@ -3,8 +3,9 @@ import pandas as pd
 import math
 
 # SET PATHS
-input_directory = "../output/8_cuffdiff/Cuffdiff/"
-output_directory = "../output/8_cuffdiff/"
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/"
+input_directory = context_path+"8_cuffdiff_result/Cuffdiff/"
+output_directory = context_path+"9_DEG/"
 
 subfolders = []
 

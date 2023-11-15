@@ -26,14 +26,14 @@ for folder_name in folders:
     input_file = input_directory + "/" + folder_name + "_sorted" + required_extension
 
     # create a file name for the output sam file
-    output_file_name = output_directory + folder_name
+    output_file_name = output_directory + folder_name +".txt"
 
     log_file_name = logs_directory + folder_name + "_htseq.log"
 
     # create a command to run cufflinks
     # command = "cufflinks -p 4 -G " + ref_annotation + " " + input_file + " -o " + output_file_name + " > " + log_file_name + "  2>&1 &"
     # print the command to the screen
-    command = "htseq-count "+ input_file + " "+ref_annotation+" -i ID -t gene -f bam > " + output_file_name + " > " + log_file_name + "  2>&1 &"
+    command = "htseq-count "+ input_file + " "+ref_annotation+" -i ID -t gene -f bam > " + output_file_name + "  > " + log_file_name + "  2>&1 &"
     print(command)
     # run the command
     os.system(command)

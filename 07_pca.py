@@ -7,11 +7,14 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 import os
 import plotly.express as px
+
+study_name = 'BurkeLab'
 context_path = '/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/'
 input_file = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/06_fpkm_csv/combined_data_transposed.csv"
+output_dir = context_path+"7_pca"
 # create folder for output
-if not os.path.exists(context_path+'7_pca'):
-    os.makedirs(context_path+'7_pca')
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
 
 # read in the data
 df = pd.read_csv(input_file)
@@ -49,7 +52,7 @@ ax.scatter(pca_df['PC1'], pca_df['PC2'])
 ax.set_xlabel('PC1')
 ax.set_ylabel('PC2')
 ax.set_title('PCA')
-plt.savefig('../output/7_pca/pca.png')
+plt.savefig(output_dir+'/pca.png')
 plt.close()
 
 # # plot the pca data with the experiment names
@@ -109,7 +112,7 @@ plt.close()
 # Plotly version
 
 # Create a DataFrame for Plotly
-pca_df['experiment_names'] = pca_df['gene_id'].apply(lambda x: x[:-1])  # Remove the last character to show group names
+pca_df['experiment_names'] = pca_df['gene_id'].apply(lambda x: x[:-2])  # Remove the last character to show group names
 
 # Define the color mapping
 colors = {
@@ -132,7 +135,7 @@ pca_df['color'] = pca_df['gene_id'].apply(lambda x: colors.get(x[:-1], 'black'))
 # Create the Plotly scatter plot
 fig = px.scatter(
     pca_df, x='PC1', y='PC2', color='experiment_names',
-    hover_name='experiment_names', title='PCA Plot',
+    hover_name='experiment_names', title=study_name+' PCA Plot',
     labels={'experiment_names': 'Experiment Group'}
 )
 
@@ -141,6 +144,6 @@ fig.update_traces(marker=dict(size=10))  # Increase marker size
 fig.update_layout(legend=dict(font=dict(size=14)))  # Increase legend font size
 
 # Save the Plotly plot as an HTML file
-fig.write_html('../output/7_pca/pca_plotly.html')
+fig.write_html(output_dir+'/pca_plotly.html')
 
 fig.show()

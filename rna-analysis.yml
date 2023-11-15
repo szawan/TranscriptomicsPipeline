@@ -1,0 +1,10 @@
+name: RNASEQ-ANALYSIS
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  - r-base=4.3
+  - r-essentials
+  - bioconductor-deseq2
+  - bioconductor-edger

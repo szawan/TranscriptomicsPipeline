@@ -2,8 +2,9 @@ import os
 import pandas as pd
 
 # SET PATHS
-input_directory = "../output/8_cuffdiff/Cuffdiff/"
-output_directory = "../output/8_cuffdiff/"
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/"
+input_directory = context_path+"8_cuffdiff_result/Cuffdiff/"
+output_directory = context_path+"9_DEG/"
 
 subfolders = []
 
@@ -32,6 +33,6 @@ for fname  in subfolders:
         print(fname)
         print(cnt)
         print("\n")
-        df_results = df_results._append({'file_name': fname, 'significant_genes': cnt, 'up_regulated': upregulated, 'down_regulated': downregulated}, ignore_index=True)
+        df_results = df_results.append({'file_name': fname, 'significant_genes': cnt, 'up_regulated': upregulated, 'down_regulated': downregulated}, ignore_index=True)
 
 df_results.to_csv(output_directory+'02_DEGenesCount.csv', sep='\t', encoding='utf-8', index=False)

@@ -1,4 +1,7 @@
 Condition,Reference,Experiment
+Cuffdiff,A549_C36,A549_E07
+Cuffdiff,A549_C36,A549_Veh
+Cuffdiff,A549_E07,A549_Veh
 Cuffdiff,H820_C36,H820_E07
 Cuffdiff,H820_C36,H820_Veh
 Cuffdiff,H820_E07,H820_Veh
