@@ -3,8 +3,9 @@ import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 
 # SET PATHS
-input_directory = "../output/8_cuffdiff/"
-output_directory = "../output/8_cuffdiff/"
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/"
+input_directory = context_path+"9_DEG/"
+output_directory = context_path+"9_DEG/"
 
 # Load your gene matrix data into a Pandas DataFrame
 gene_matrix = pd.read_csv(input_directory + "01_DEGenesList.csv", sep="\t", index_col=0)

@@ -2,8 +2,9 @@ library(UpSetR)
 library(ggplot2)
 
 # set input and output file paths
-input_directory <- "../output/8_cuffdiff/"
-output_directory <- "../output/8_cuffdiff/"
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/"
+input_directory <- "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/9_DEG/"
+output_directory <- '/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/9_DEG/'
 
 # read the CSV file (tab-delimited)
 mydata <- read.delim(paste0(input_directory, "01_DEGenesList.csv"))

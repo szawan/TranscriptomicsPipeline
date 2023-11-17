@@ -24,7 +24,7 @@ for fname  in subfolders:
         df = pd.read_csv(input_directory+fname+"/gene_exp.diff",sep='\t')
         cnt =0
         for index, row in df.iterrows():
-            if(row['q_value']<=0.05):
+            if((row['q_value']<=0.05):
                 cnt = cnt+1
                 re.loc[index,'significant'] = "YES"
             else:

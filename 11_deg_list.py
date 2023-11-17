@@ -21,7 +21,7 @@ for fname  in subfolders:
     if(fname != 'logs_cuffdiff'):
         df = pd.read_csv(input_directory+fname+"/gene_exp.diff",sep='\t')
         cnt =0
-        tt= df[df['q_value']<=0.05]['gene_id']
+        tt= df[((df['q_value']<=0.05) & (df['log2(fold_change)'].abs() > 1))]['gene_id']
         print(type(tt))
         print(type(df))
         tt = tt.rename(fname)

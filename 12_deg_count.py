@@ -24,7 +24,7 @@ for fname  in subfolders:
         upregulated = 0
         downregulated = 0
         for index, row in df.iterrows():
-            if(row['q_value'] <= 0.05):
+            if((row['q_value'] <= 0.05) & (row['log2(fold_change)'].abs() > 1 )):
                 cnt = cnt+1
                 if(row['log2(fold_change)'] > 0):
                     upregulated = upregulated+1
