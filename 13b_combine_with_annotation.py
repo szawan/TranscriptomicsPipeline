@@ -3,9 +3,10 @@ import pandas as pd
 import math
 
 # SET PATHS
-input_directory = "../output/8_cuffdiff/extracted_results/"
-ref_annotation_location = "../others/Athaliana_ProteinAnnotation_TAIR10.csv"
-output_directory = "../output/8_cuffdiff/extracted_results_with_annotation/"
+context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/"
+input_directory = context_path+"9_DEG_new_v2/"
+ref_annotation_location = "/scratch/sah2p/datasets/hg38/annotation/Homo_sapiens.gene_info.txt"
+output_directory = context_path+"9_DEG_new_v2/extracted_results_with_annotation/"
 
 # CREATE OUTPUT DIRECTORY IF NOT EXISTS
 if not os.path.exists(output_directory):
@@ -25,7 +26,7 @@ for filename in os.listdir(input_directory):
         input_file = pd.read_csv(os.path.join(input_directory, filename), sep='\t')
         print(input_file.head())
         # in input file, rename replace "gene:" with "" in gene column
-        input_file['gene'] = input_file['gene'].str.replace('gene:', '')
+        input_file['gene'] = input_file['gene'].str.replace('gene-', '')
         print(input_file.head())
 
         # MERGE WITH REFERENCE ANNOTATION FILE

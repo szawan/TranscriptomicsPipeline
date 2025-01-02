@@ -1,0 +1,8 @@
+name: my_clusterprofiler_env  # Change this to your desired environment name
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - r=4.0.0
+  - bioconductor-clusterprofiler=3.14.0

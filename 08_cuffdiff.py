@@ -12,7 +12,7 @@ logs_directory = "/8_cuffdiff_results/logs/"
 folder_names_file = "folder_names.txt"
 
 reference_file = "/scratch/sah2p/datasets/hg38/annotation/GRCh38_latest_genomic.gff"
-comp_file = "comp.csv"
+comp_file = "/scratch/sah2p/projects/RNASeqPipeline/comp_all_v2.csv"
 comp = pd.read_csv(comp_file)
 
 comp['den'] = ""

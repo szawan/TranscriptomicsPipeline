@@ -3,9 +3,13 @@ import pandas as pd
 
 # SET PATHS
 context_path = "/scratch/sah2p/datasets/2023_11_04_BurkeLab/output/"
-input_directory = context_path+"8_cuffdiff_result/Cuffdiff/"
-output_directory = context_path+"9_DEG/"
-
+input_directory = context_path+"8_cuffdiff_result/Cuffdiff_new/"
+output_directory = context_path+"9_DEG_new_v2/"
+#2 fold change
+# fcthreshold = 1 
+#1.5 fold change
+fold_change = 2
+fcCriteria = 0.5
 subfolders = []
 
 for item in os.listdir(input_directory):
@@ -21,7 +25,9 @@ for fname  in subfolders:
     if(fname != 'logs_cuffdiff'):
         df = pd.read_csv(input_directory+fname+"/gene_exp.diff",sep='\t')
         cnt =0
-        tt= df[((df['q_value']<=0.05) & (df['log2(fold_change)'].abs() > 1))]['gene_id']
+        tt= df[((df['q_value']<0.05) & (df['log2(fold_change)'].abs() > fcCriteria))]['gene_id']
+        # tt= df[((df['q_value']<0.05))]['gene_id']
+
         print(type(tt))
         print(type(df))
         tt = tt.rename(fname)
@@ -35,6 +41,8 @@ for fname  in subfolders:
             
 # x = df[df['q_value']<=0.05].count()
 # x = df[df['q_value']<=0.05 and df['']].count()
-re.to_csv(output_directory+'01_DEGenesList.csv', sep='\t', encoding='utf-8', index=False)
+re.to_csv(output_directory+'01_2FC_greaterthan_'+str(fcCriteria)+'_DEGenesList.csv', sep='\t', encoding='utf-8', index=False)
+# re.to_csv(output_directory+'01_qvalue_DEGenesList.csv', sep='\t', encoding='utf-8', index=False)
+
 print(re)
 
